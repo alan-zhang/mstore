@@ -1,0 +1,44 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<script type="text/x-handlebars" data-template-name="roles">
+	
+	<div class="ll-add-role">
+		<button {{action 'createRole'}} class="ll-ui-button ll-add-user" id="newAdd"><span class="ll-ui-op ll-add"></span>新增</button>
+		<div id="add-panel" class="ll-collapsing">
+			<input type="text" placeholder="角色名称" {{bind-attr value="newRoleName"}}/>
+			<input type="text" placeholder="角色描述" {{bind-attr value="newRoleDesc"}}/>
+			<button {{action 'hide'}} class="ll-ui-button" id="save">保存</button>
+		</div>
+	</div>
+	
+	<div class="ll-roles-wrapper">
+		<ul class="ll-roles">
+			{{#each itemController="role"}}
+				<li class="ll-roles-item">
+					<div class="ll-roles-ct">
+						<span class="ll-roles-cell">{{id}}</span>
+						
+						{{#if isEditing}}						
+						<input class="ll-role-edit" type="text" {{bind-attr value="roleDesc"}}/>
+						<input class="ll-role-edit" type="text" {{bind-attr value="roleName"}}/>
+						<button class="ll-ui-button ll-s" {{action 'save' id}}>Save</button>
+						{{else}}
+						<span class="ll-roles-cell">{{roleDesc}}</span>
+						<span class="ll-roles-cell">{{roleName}}</span>
+						{{/if}}
+							
+					</div>
+					<div class="ll-roles-op">						
+						<span class="ll-ui-op ll-edit" {{action 'edit' id}} title="编辑"></span>
+						<span class="ll-ui-op ll-del" title="删除"></span>
+					</div>
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+</script>
+
+<!--
+<script type="text/x-handlebars" data-template-name="roles/edit">
+	How are you?
+</script>-->

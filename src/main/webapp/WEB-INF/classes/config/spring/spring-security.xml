@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+       xmlns:security="http://www.springframework.org/schema/security"  
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   
+            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  
+            http://www.springframework.org/schema/security   
+            http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+			
+	<security:http pattern="/auth/login" security="none"/>
+	<security:http pattern="/auth/login-failure" security="none"/>
+	<security:http pattern="/scripts/**" security="none"/>
+	<security:http pattern="/css/**" security="none"/>
+	<security:http pattern="/images/**" security="none"/>
+	
+	<security:http auto-config="true" access-denied-page="/auth/denied">			
+		<security:form-login login-page="/auth/login" 
+							 login-processing-url="/perform-login"
+							 authentication-failure-url="/auth/login-failure" 							
+							 authentication-success-handler-ref="simpleUrlAuthenticationSuccessHandler" />
+							 
+		<security:logout invalidate-session="true"   
+                		 logout-success-url="/auth/login"   
+						 logout-url="/auth/logout" /> 
+		
+		<security:session-management session-fixation-protection="none">
+			<security:concurrency-control max-sessions="10" expired-url="/auth/login"/>   
+		</security:session-management>
+		
+		<security:custom-filter ref="customFilterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR" />
+	</security:http>
+	
+	<security:authentication-manager alias="authenticationManager">
+		<security:authentication-provider user-service-ref="customUserDetailsService" />
+	</security:authentication-manager>	
+	
+	<bean id="customFilterSecurityInterceptor" class="org.azt.mstore.security.CustomFilterSecurityInterceptor">
+		<property name="authenticationManager" ref="authenticationManager"/>
+		<property name="accessDecisionManager" ref="customAccessDecisionManager"/>
+		<property name="securityMetadataSource" ref="customSecurityMetadataSource"/>
+	</bean>
+		
+	<bean id="customAccessDecisionManager" class="org.azt.mstore.security.CustomAccessDecisionManager" />
+	<bean id="customSecurityMetadataSource" class="org.azt.mstore.security.CustomFilterInvocationSecurityMetadataSource" />
+	<bean id="customUserDetailsService" class="org.azt.mstore.security.CustomUserDetailsService"/>
+	
+	<bean id="simpleUrlAuthenticationSuccessHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler">
+		<property name="defaultTargetUrl" value="/auth/login-success" />
+	</bean>
+	
+	<!--
+	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="customUserDetailsService">
+			<security:password-encoder ref="passwordEncoder" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
+    <bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />  
+    -->
+</beans>

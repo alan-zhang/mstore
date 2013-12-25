@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Bean -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  
+             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd  
+             http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd              
+             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+	<mvc:annotation-driven />
+	<context:component-scan base-package="org.azt.mstore" />
+
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver" >  
+        <property name="mediaTypes">  
+            <map>  
+                <entry key="atom" value="application/atom+xml" />  
+                <entry key="html" value="text/html" />  
+                <entry key="json" value="application/json" />  
+            </map>  
+        </property>  
+        <property name="viewResolvers">  
+            <list>  
+                <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />  
+                <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+                    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>  
+                    <property name="prefix" value="/WEB-INF/views/" />  
+                    <property name="suffix" value=".jsp" />  
+                </bean>  
+            </list>  
+        </property>  
+        <property name="defaultViews">  
+            <list>  
+                <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />  
+            </list>  
+        </property>  
+    </bean>  
+	
+	<!--<bean id="requestExcludingHandler" class="org.azt.mstore.interceptor.RequestExcludingHandler">
+    	<property name="excludedUrls">
+            <list>
+                <value>/login</value>	
+                <value>/login-error</value>   
+            </list>
+        </property>
+    </bean>-->
+    <!--     
+	<mvc:interceptors>			
+	    <mvc:interceptor>	
+	        <mvc:mapping path="/**" />		        
+	        <bean class="org.azt.mstore.interceptor.SpecialCharInUrlInterceptor">	
+				
+	        </bean>
+	    </mvc:interceptor>	
+	</mvc:interceptors>
+	
+	<bean id="handlerExceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="org.azt.mstore.exception.AuthorizationException">redirect:/login</prop>
+			</props>
+		</property>
+	</bean>-->
+	
+	<!-- <mvc:default-servlet-handler/> -->
+	<mvc:resources location="/WEB-INF/static-resources/scripts/" mapping="/scripts/**"/>
+	<mvc:resources location="/WEB-INF/static-resources/css/" mapping="/css/**"/>
+	<mvc:resources location="/WEB-INF/static-resources/images/" mapping="/images/**"/>
+</beans>  

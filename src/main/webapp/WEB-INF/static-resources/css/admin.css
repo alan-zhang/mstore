@@ -1,0 +1,172 @@
+
+.ll-add-user {
+  margin: 2px 0px 3px 0px;
+}
+
+.ll-add-user:hover {
+  background-color: #eee;
+}
+
+.ll-user {
+  background-color: #f8f8f8;
+  margin: 10px 0px 3px 20px;
+  width: 500px;
+  border: 1px solid #eee;
+  padding: 5px 0px 25px 0px;
+  font-size: 13px;
+  box-shadow: 1px 2px 3px #eef;
+  border-radius: 6px;
+}
+
+.ll-user table {
+  margin-left: 10px;
+}
+
+.ll-user tr {
+  height: 20px;
+}
+
+.ll-item {
+  margin-bottom: 5px;
+}
+
+.ll-lb {
+  margin-right: 10px;
+}
+
+.ll-ct {
+}
+
+.ll-content {
+  min-width: 500px;
+  float: left;
+}
+
+.ll-content ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ll-content ul li:hover {
+  background-color: #eee;
+}
+
+.ll-op {
+  border-top: 1px solid #e5e5e5;
+}
+
+.ll-u-n {
+  border-bottom: 1px solid #eee;
+  margin-left: 20px;
+}
+
+.ll-time {
+  float: right;
+  font-size: 12px;
+  margin: 2px 10px 0px 0px;
+}
+
+.ll-edit-panel {
+  float: left;
+  width: -webkit-calc(100% - 600px);
+  width: -moz-calc(100% - 600px);
+  width: calc(100% - 600px);
+}
+
+.ll-user-edit {
+  margin: 10px 0px 0px 30px;
+  border: 1px solid #eee;
+  padding: 0px 20px 10px 20px;
+  border-radius: 5px;
+  width: calc(100% - 300px);
+  background-color: #f8f8f8;
+  box-shadow: 1px 2px 2px #eee;
+}
+
+.ll-edit-in {
+}
+
+.ll-u-d {
+  border-bottom: 1px solid #eee;
+  margin: 5px 0px 10px 0px;
+  padding: 4px;
+}
+
+.ll-search {
+  margin: 10px 0px 0px 100px;
+}
+
+.ll-ebtn {
+  margin: 10px 0px 0px 10px;
+}
+
+.ll-pg {
+  padding: 20px 0 0 20px;
+}
+
+.ll-role {
+  min-height: 40px;
+}
+
+.ll-role-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ll-role-list li {
+  float: left;
+  min-width: 40px;
+  margin: 0 5px;
+}
+
+.ll-role-list li input {
+  margin: -2px 2px 0 0;
+}
+
+.ll-ui-button-icon {
+}
+
+.ll-ui-button {
+  width: 60px;
+  height: 30px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.ll-ui-button:hover {
+  background-color: #eee;
+}
+
+.ll-ui-op {
+  background: url(../images/part.png) no-repeat;
+  float: left;
+  display: block;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.ll-edit {
+  background-position: -22px -22px;
+  margin: 2px 5px 0px 10px;
+}
+
+.ll-del {
+  background-position: -455px 2px;
+  margin: 2px 5px 0px 10px;
+}
+
+.ll-add {
+  background-position: 0px -95px;
+  margin-top: 2px;
+}
+
+.ll-se {
+  background-position: -47px 1px;
+  margin-top: 2px;
+}

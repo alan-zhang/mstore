@@ -1,0 +1,36 @@
+.ll-expand {display:block;padding:20px 0 10px 0;border:1px solid #eee;background-color: #f8f8f8;
+border-radius: 5px;
+width: 450px;height: 75px;
+}
+.ll-collapsing {display:none;}
+
+.ll-roles-wrapper {margin-left:20px;}
+.ll-roles{list-style: none;margin: 0;padding: 0;}
+.ll-roles-item {
+	font-size: 14px;
+	margin-bottom: 5px;
+	border: 1px solid #eee;
+	width: 450px;
+	height: 75px;
+	border-radius: 5px;
+	background:#f8f8f8;
+}
+.ll-roles-item:hover{background-color: #eee;}
+.ll-roles-ct {padding: 5px;height: 35px;}
+.ll-roles-op {border-top:1px solid #e5e5e5;padding: 5px 0 5px 5px;}
+.ll-roles-op a{
+	display: block;
+	margin-right: 10px;
+	width: 40px;
+	float: left;
+}
+.ll-role-edit{width:120px;}
+.ll-roles-cell{
+	display: block;
+	float: left;
+	margin-right: 25px;
+	border-right: 1px solid #e5e5e5;
+	padding: 0 30px 0 10px;
+}
+.ll-s{margin: -10px 0 0 20px;}
+.ll-add-role{margin:0 0 10px 20px;}
